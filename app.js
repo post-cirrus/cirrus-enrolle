@@ -55,8 +55,8 @@ passwordless.init(new MongoStore(pathToMongoDb));
 //     });
 
 var gen = rn.generator({
-  min:  0,
-  max:  9,
+  min:  10,
+  max:  99,
   integer: true
 })
 
@@ -70,9 +70,7 @@ passwordless.addDelivery(
       callback(err);
     });
   }, { tokenAlgorithm: function() {
-      return gen().toString()+''+gen().toString()+''+
-             gen().toString()+''+gen().toString()+''+
-             gen().toString()+''+gen().toString();
+      return gen().toString()+''+gen().toString()+''+gen().toString();
     }
 });
 
