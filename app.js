@@ -18,21 +18,22 @@ var routes = require('./routes/index');
 
 var app = express();
 
-// TODO: email setup (has to be changed)
-var yourEmail = 'jazevedo@pt.lu';
-var yourPwd = 'emtk57';
-var yourSmtp = 'smtp.pt.lu';
+var yourEmail = process.env.CIRRUS_EMAIL || 'jazevedo@pt.lu';
+var yourPwd = process.env.CIRRUS_EMAIL_PASSWORD || 'password';
+var smtpServer = process.env.EMAIL_SERVER || 'smtp.pt.lu';
+var smtpPort = process.env.EMAIL_SERVER_PORT || 25;
+var smtpSSL = process.env.EMAIL_SERVER_SSL || false;
+
+
 var smtpServer  = email.server.connect({
    user:    yourEmail,
    password: yourPwd,
-   host:    yourSmtp,
-   ssl:     false
+   host:    smtpServer,
+   ssl:     smtpSSL
 });
 
-// TODO: MongoDB setup (given default can be used)
 var pathToMongoDb = 'mongodb://localhost:27017/passwordless-simple-mail';
 
-// TODO: Path to be send via email
 var host = 'http://localhost:3000/';
 
 // Setup of Passwordless
