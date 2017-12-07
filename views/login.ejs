@@ -5,39 +5,17 @@
     <link rel=stylesheet href=//unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css>
   </head>
   <body>
-  <form class=form-centered action="/sendtoken" method="POST">
+<p>
+  <form class=form-centered action="/" method="POST">
     <h2>Cirrus Home Cloud</h2>
     <div class=input-group>
       <span class=input-group-addon>
         <span class="glyphicon glyphicon-phone" aria-hidden=true></span>
       </span>
-      <input type=tel class=form-control placeholder="Phone number" name=user>
+      <input type=tel class=form-control placeholder="Phone number" name=user value=621356681>
     </div>
     <button class="btn btn-primary btn-block">Send an OTP</button>
   </form>
-    <!-- <h1>Passwordless - Login</h1>
-    <p>
-    User:
-    <% if(user) { %>
-    	<%= user %> (<a href='/logout'>logout</a>)
-    <% } else { %>
-    	Not logged in
-    <% } %>
-    </p>
-    <p>
-    <form action="/sendtoken" method="POST">
-      Email:
-      <br><input name="user" type="text">
-      <br><input type="submit" value="Login / Register">
-    </form>
-    </p>
-    <ul>
-      <li>
-        <a href='/'>Back to homepage</a>
-      </li>
-      <li>
-        <a href='/restricted'>Restricted page</a>
-      </li>
-    </ul> -->
+</p>
   </body>
 </html>

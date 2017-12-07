@@ -24,7 +24,6 @@ var smtpServer = process.env.EMAIL_SERVER || 'smtp.pt.lu';
 var smtpPort = process.env.EMAIL_SERVER_PORT || 25;
 var smtpSSL = process.env.EMAIL_SERVER_SSL || false;
 
-
 var smtpServer  = email.server.connect({
    user:    yourEmail,
    password: yourPwd,
@@ -80,6 +79,7 @@ passwordless.addDelivery(
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+
 // Standard express setup
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -90,7 +90,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Passwordless middleware
 app.use(passwordless.sessionSupport());
-app.use(passwordless.acceptToken({ successRedirect: '/' }));
+app.use(passwordless.acceptToken({ successRedirect: '/activation' }));
 
 // CHECK /routes/index.js to better understand which routes are needed at a minimum
 app.use('/', routes);
