@@ -20,53 +20,14 @@ router.post('/', passwordless.requestToken(function (user, delivery, callback) {
     }
 );
 
-router.post('/verify', passwordless.acceptToken({ allowPost: true }), function (req, res) {
-    console.log('/verify '+ req.body.uid);
-    console.log('/verify '+ req.body.token);
-    res.render('activation');
+router.post('/verify', passwordless.acceptToken({ allowPost: true, successRedirect: '/activation', enableOriginRedirect: true}), function(req, res) {
+   res.redirect('/');
 });
 
 router.get('/activation', passwordless.restricted({ failureRedirect: '/' }), function(req, res) {
    res.render('activation');
 });
 
-router.get('/error', function(req, res) {
-  res.render('error', { message: 'Authentication Failed' });
-});
-
-// /* GET restricted site. */
-// router.get('/activation', passwordless.restricted(),
-//  function(req, res) {
-//   console.log(req.user);
-//   res.render('activation', { user: req.user });
-// });
-//
-// // /* GET login screen. */
-// // router.get('/login', function(req, res) {
-// //   res.render('login', { user: req.user });
-// // });
-//
-// router.post('/otp', function(req, res) {
-//   res.render('sent');
-// });
-//
-// /* POST login screen. */
-// router.post('/authenticate',
-// 	passwordless.requestToken(
-// 		// Simply accept every user
-// 		function(user, delivery, callback) {
-//       console.log(user);
-// 			callback(null, user);
-// 			// usually you would want something like:
-// 			// User.find({email: user}, callback(ret) {
-// 			// 		if(ret)
-// 			// 			callback(null, ret.id)
-// 			// 		else
-// 			// 			callback(null, null)
-// 			// })
-// 		}),
-// 	function(req, res) {
-//   		res.render('sent');
-// });
+router.use('*', passwordless.restricted({ failureRedirect: '/' }));
 
 module.exports = router;
