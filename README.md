@@ -1,14 +1,26 @@
 # cirrus-enrolle
 
-Environment variable than can be passed, if not than defaults will be used:
+You muss pass the following environment variable (there are no default values):
 
-- CIRRUS_EMAIL
-- CIRRUS_EMAIL_PASSWORD
-- EMAIL_SERVER
-- EMAIL_SERVER_PORT
-- EMAIL_SERVER_SSL  
+```
+###### TWILIIO
+- TWILIO_PHONE_NUMBER
+- TWILIO_ACCOUNT_SID
+- TWILIO_AUTH_TOKEN
 
-Passing it to the application:
+###### SERVER
+- SERVER_PORT
+- SERVER_URL
+
+###### MONGOSE DATABASE
+- MONGOSE_URL
+- MONGOSE_PORT
+- MONGOSE_DB
+```
+
+
+Passing the environment variables to the application:
 ```
 $ CIRRUS_EMAIL = 'cirrus-lu@pt.lu' EMAIL_SERVER='mail.server.io' node app.js
 ```
+or reate a `.env` file for development and put it in you root directory. Pay attention that `.env` file will not be loaded on production, arguments have to be put in the system for security reasons.
