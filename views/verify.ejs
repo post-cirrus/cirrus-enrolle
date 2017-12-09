@@ -1,21 +1,52 @@
-<!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <head>
-      <link rel=stylesheet href=//unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css>
-    </head>
-    <body>
-    <form class=form-centered action="/verify" method="POST">
-      <h2>Cirrus Home Cloud</h2>
-      <p class=text-info>Please confirm your identity with your OTP.</p>
-      <div class=input-group>
-        <span class=input-group-addon>
-          <span class="glyphicon glyphicon-lock" aria-hidden=true></span>
-        </span>
-        <input type=hidden name=uid class=form-control value=<%= uid %>>
-        <input type=otp class=form-control placeholder="Please entre the number send via SMS" name=token>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Cirrus</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/stylesheets/cover.css" type="text/css">
+  </head>
+
+  <body>
+    <div class="site-wrapper">
+      <div class="site-wrapper-inner">
+        <div class="cover-container">
+
+          <header class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand"></h3>
+            </div>
+          </header>
+
+          <main role="main" class="inner cover">
+            <form class="form-centered" action="/" method="POST">
+              <p class="text-info">Please enter the received SMS</p>
+              <div class="row justify-content-center">
+                <div class="col-md-6">
+                  <div class="form-group input-group">
+                    <input type="hidden" name="uid" class="form-control" value=<%= uid %>>
+                    <input class="form-control" placeholder="SMS" name="token">
+                    <span class="input-group-btn">
+                      <button class="btn btn-primary btn-block">Validated</button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </main>
+
+          <footer class="mastfoot">
+            <div class="inner">
+              <p>Powered by <a href="https://twitter.com/nubitekk">@nubitekk</a>.</p>
+            </div>
+          </footer>
+
+        </div>
       </div>
-      <button class="btn btn-primary btn-block">Please enter your OTP</button>
-    </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
   </body>
 </html>
